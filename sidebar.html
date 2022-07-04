@@ -7,9 +7,18 @@
     <title>Navigation Sidebar</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="./External.CSS/sidebar.css">
-   
+    <!-- mene loading ki css add ki -->
+   <link rel="stylesheet" href="./External.CSS/loading.css">
 </head>
-<body>
+<body onload="playloader()">
+    <div class="container">
+        <div class="ball">
+            </div>
+            <p>loading <span>...</span>
+            </p> 
+        </div>
+
+<div class="container1">
    <div class="header">
 
         <img src="https://e7.pngegg.com/pngimages/527/685/png-clipart-hackerrank-programmer-computer-programming-logo-java-hackerrank-angle-trademark.png" width="100px" height="70px">
@@ -54,6 +63,7 @@ That’s when they noticed a massive problem—and opportunity—in the technica
         <a href=""><i class="fa fa-instagram"></i></a>
       </div>
     </div>
-    
+</div>
+<script src="./java_script_files/loading.js"></script>
 </body>
 </html>
