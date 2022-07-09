@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Session Storage</title>
+</head>
+<body>
+    <h2 style="text-align:center">Session Storage Demo</h2>
+<hr>
+<pre>
+    Enter name:
+    <input type="text" id="textbox1">
+
+    Enter email:
+    <input type="text" id="textbox2">
+
+    <button id="btn">Add data</button>           <button id="btn2">Delete data</button>
+    
+    <a href="./storagedatasess.html">See the details</a>
+</pre>
+<script>
+    //reference
+    name1=document.getElementById('textbox1');
+    emailid=document.getElementById('textbox2');
+btn=document.getElementById('btn');
+delbtn=document.getElementById('btn2');
+var data={
+    name: "",
+    email: "",
+};
+    //function to store data in local storage
+    btn.onclick=function () {
+        data.name = name1.value;
+        data.email = emailid.value;
+
+        
+   sessionStorage.setItem("info",JSON.stringify(data));
+    
+    name1.value = "";
+    emailid.value = "";
+    };
+    delbtn.onclick = function()
+    {
+        sessionStorage.removeItem('info');
+    };
+</script>
+    
+</body>
+</html>
