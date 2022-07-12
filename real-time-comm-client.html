@@ -1,0 +1,85 @@
+<html>
+    <head>
+        <title>Real time communication</title>
+    </head>
+    <body>
+        <h2>real-time-communication-using web sockets</h2>
+        <pre>
+                    Message send to server:
+                    <br>
+        <input type="text" >                 <button>Send</button>
+
+        <button id="dis">disconnect server</button>
+
+
+
+
+        <button id="re">reconnect server</button>
+
+
+
+    </pre>
+
+
+
+
+
+
+
+
+
+<script>
+    //
+    var btndis=document.getElementById('dis');
+    var input=document.querySelector('input');
+    var sendbtn=document.querySelector('button');
+    var btnre=document.getElementById('re');
+    
+    
+
+    
+
+    if(window.WebSocket){
+        console.log("browser support web sockets");
+    const ws=new WebSocket('ws://localhost:8000');
+    ws.addEventListener('open',()=>{
+console.log("we are connected with web sockets");
+    });
+    
+sendbtn.onclick=function(){
+    let msg=input.value;
+    ws.send(msg);
+};
+ws.addEventListener("message",(e)=>{
+console.log("server reply:",e.data);
+}
+);
+
+
+
+
+
+
+
+
+
+    
+    btndis.onclick=()=>{
+        ws.close();
+        console.log("we are disconnected with server");
+    };
+btnre.onclick= ()=>
+{
+    location.reload();
+};
+
+
+    
+    }
+    else{
+        console.log("browser not supporting web sockets");
+    }
+
+</script>
+    </body>
+</html>
